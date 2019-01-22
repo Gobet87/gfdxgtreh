@@ -39,17 +39,14 @@ function disableclick(event)
 				<strong class="btn-danger btn-sm"><span class="glyphicon glyphicon-user anic"></span> Login: GACOR01</strong>
 			</div>
 			<div class="panel-body">
-				<strong><span class="alert-warning rg-source" style="text-align: left;"></span></strong>
-				<form method="post">
-					<input class="form-control input-sm" name="access_login" placeholder="Username" type="hidden" value="senkgo">
-					<hr class='mbuh'>
-					<div class="input-group">
-		<input type="password" class="form-control input-sm" id="access_password" name="access_password" autofocus="" placeholder="#Password">
-		<div class="input-group-btn">
-			<button class="btn btn-default btn-sm" type="submit" type="button"><span class="glyphicon glyphicon-refresh gly-spin"></span><strong> Login</strong></button>
-		</div>
-	</div>
-				</form>
-			</div>
-		</div>
-	</div>
+<form id="form_id" method="post" name="myform">
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+</div>
+</div>
+</body>
+</html>
