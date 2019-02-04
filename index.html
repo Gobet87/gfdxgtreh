@@ -1,7 +1,8 @@
 
-	
-	<head>
-<script type="text/javascript">
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<script type="text/javascript">
 document.onmousedown=disableclick;
 status="TERCIDUK....!!! Oleh Cyber Scurity SENK Team";
 function disableclick(event)
@@ -13,76 +14,67 @@ function disableclick(event)
    }
 }
 </script>
-		
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
- <head>
-
-<title>Login Sederhana</title>
-
-
-<link rel="stylesheet" href="tgsprak.css" type="text/css"/>
-
-
+	<meta charset="UTF-8">
+	<title>Login PHP</title>
+<meta name="description" content="Login PHP Ajax Jquery | Tutorial web design Indonesia"/>
+<meta name="keywords" content="ajax, jquery, login system, ajax login, jquery login, demo, tutorial, web design, web development"/>
+	<link rel="stylesheet" href="style.css" />
+	<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="jquery-1.7.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("#login").click(function(){
+			
+			var action = $("#lg-form").attr('action');
+			var form_data = {
+				username: $("#username").val(hog),
+				password: $("#password").val(hog),
+				is_ajax: 1
+			};
+			
+			$.ajax({
+				type: "POST",
+				url: action,
+				data: form_data,
+				success: function(response)
+				{
+					if(response == "success")
+						$("#lg-form").slideUp('slow', function(){
+							$("#message").html('<p class="success">You have logged in successfully!</p><p>Redirecting....</p>');
+						});
+					else
+						$("#message").html('<p class="error">ERROR: Invalid username and/or password.</p>');
+				}	
+			});
+			return false;
+		});
+	});
+	</script>
 </head>
+<body>
 
- 
-<body bgcolor="#69e0f5">
-<script language="JavaScript" type="text/javascript">
-function cekuser(a) {
+	<div class="lg-container">
+		<h1>Admin Area</h1>
+		<form action="waka-login.php" id="lg-form" name="lg-form" method="post">
+			
+			<div>
+				<label for="username">Username:</label>
+				<input type="text" name="username" id="username" placeholder="username"/>
+			</div>
+			
+			<div>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password" placeholder="password" />
+			</div>
+			
+			<div>				
+				<button type="submit" id="login">Login</button>
+			</div>
+			
+		</form>
+		<div id="message"></div>
+	</div>
 
-re = /^[A-Za-z]{1,}$/;<!--username harus berupa huruf, baik huruf besar ataupun kecil dan banyaknya minimal 1 huruf--!>
-return re.test(a);
-
-}
-
-function cekpassword(a) {
-
-re = /^[A-Za-z]{8,}$/; <!--password harus berupa huruf, baik huruf besar ataupun kecil dan banyaknya minimal 8 huruf--!>
-return re.test(a);
-}
-function checkForm(b) {
-
-if (!cekuser(b.username.value)) {
-
-alert("Isilah Username dan Password sesuai ketentuan!! Username dan Password harus berupa huruf!! ");
-
-b.username.focus();
-return false;
-}
-if (!cekpassword(b.password.value)) {
-alert("Masukkan Password dengan benar!! Password minimal terdiri dari 8 huruf!!");
-b.password.focus();
-return false;
-}
-return true;
-}
-</script>
-
-<div id="wrapper">
-<div id="kotak1">
-
-<form name="form1" action="<?php $_SERVER['PHP_SELF'];?>" method="post" onsubmit="return checkForm(this)">
-<div id="user">Username <input type ="text" name ="username" /></div>
-<div id="pass">Password <input type ="text" name ="password" /></div>
-<div id="ok"><input type ="submit" value="OK" /></div>
-<div id="batal"><input type="reset" value="Batal" /></div>
-</form>
-</div>
-<div id="kotak2">
-<?php
-if (is_string($_POST['username'])){
-if (($_POST['password']=='silvercyber')&&($_POST['username']=='silver')){echo 'selamat datang : ' .$_POST['username'];}
-else{echo 'Username dan Password anda SALAH!!!';}
-}
-?>
-</div>
-</div>
 </body>
-</html> 
+</html>
