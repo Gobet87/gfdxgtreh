@@ -1,123 +1,89 @@
-@import "compass/css3";
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900);
-@import url(http://weloveiconfonts.com/api/?family=entypo);
-
-html,body {
-  padding: 0;
-  margin:0;
-  background-image: linear-gradient(135deg, rgba(155, 89, 182,0.8) 0%,rgba(211, 84, 0,0.8) 100%), url("http://www.hdbackgroundpoint.com/wp-content/uploads/2014/05/24/453.jpeg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+body{
+  background: #3485fe;
 }
-
 
 form {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 80%;
-  height: 40px;
-  @include box-sizing(border-box);
-  margin: auto;
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0 0 5px rgba(#000,.3)
-    ;
-  min-width: 300px;
-  @include display-flex();
-  @include justify-content(space-between);
+  width: 201px;
+  padding: 20px;
+  margin:150px auto;
+  border: 2px solid #FFFFFF;
+  background:url(categories-back.gif) transparent;
+  
+  /*** Rounded Corners ***/
+  border-radius:20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  
+  /*** Shadow behind the box ***/
+  -moz-box-shadow:0px -5px 300px #FFFFFF;
+  -webkit-box-shadow:0px -5px 300px #FFFFFF;
+  
+  /*** Background Gradient - 2 declarations one for Firefox and one for Webkit ***/
+  background:-moz-linear-gradient(19% 75% 90deg,#030615, #3485fe);
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#3485fe), to(#030615));
 }
-
 
 input {
-  @include box-sizing(border-box);
-  color: #666;
-  height: 100%;
-  padding: 20px 20px 20px 40px;
-  border: 0;
-  @include flex(10 10 1px);
-  &:focus {
-    outline: none;
-  }
-  &:focus + label:after {
-    color: #666;
-  }
-  &#username {
-    border-radius: 4px 0 0 4px;
-  }
-  &[type="submit"] {
-    @include flex(0 0 100px);
-    background: #ED6F70;
-    border: 0;
-    border-radius: 0 4px 4px 0;
-    font-family: Roboto;
-    color: white;
-    padding: 0;
-    text-transform: lowercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    line-height: 8px;
-    text-shadow: 1px 1px 0 rgba(#000, .5);
-    cursor: pointer;
-  }
+  width: 200px;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-top: 1px solid #030615;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  background: #ffffff; 
+  border-radius:20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  
+  /*** Transition Selectors - What properties to animate and how long ***/
+  -webkit-transition-property: -webkit-box-shadow, background;
+  -webkit-transition-duration: 0.25s;
+  
+  /*** Adding a small shadow ***/
+  -moz-box-shadow: 0px 0px 2px #000;
+  -webkit-box-shadow: 0px 0px 2px #000;
 }
 
+input:hover {
+  -webkit-box-shadow: 0px 0px 4px #000;
+  background: #317ff3;
+}
+
+input.submit {
+  width: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: #000 1px 1px;
+  border-top: 1px solid #ad64e0;
+  margin-top: 10px;
+
+  /*** Adding CSS3 Gradients ***/
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#030615), to(#3485fe));
+  background: -moz-linear-gradient(19% 75% 90deg,#030615, #3485fe);
+}
+
+input.submit:hover {
+  -webkit-box-shadow: 0px 0px 2px #000;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#317ef2), to(#1f4e9a));
+  background:  -moz-linear-gradient(19% 75% 90deg,#1f4e9a, #317ef2);
+} 
+
+input.submit:active {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#781bb9), to(#963AD6));
+  background:  -moz-linear-gradient(19% 75% 90deg,#963AD6, #781bb9);
+}
 
 label {
-  font-size: 0;
-  
-  &[for="username"] {
-    @include flex(0 0 30px);
-  }
-  &[for="username"]:after,
-  &[for="password"]:after {
-    content: '\1F464';
-    font-family: entypo;
-    position: absolute;
-    top: 50%;
-    left: 13px;
-    text-indent: 0;
-    font-size: 18px;
-    margin-top: -10px;
-    color: #ccc;
-  }
-  &[for="password"] {
-    &:before {
-      position: absolute;
-      top: 50%;
-      left: calc(50% - 40px);
-      text-indent: 0;
-      content: '';
-      width: 1px;
-      height: 30px;
-      margin-top: -15px;
-      border-left: 1px solid #ccc;
-      @include transform(rotate(15deg));
-    }
-    &:after {
-      content: '\1F512';
-      left: calc(50% - 15px);
-    }
-  }
-}
-
-::-webkit-input-placeholder {
-   color: #ccc;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   color: #ccc;  
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: #ccc;  
-}
-
-:-ms-input-placeholder {  
-   color: #ccc;  
+  font-size: 12px;
+  font-family: arial, sans-serif;
+  list-style-type: none;
+  color: #fff;
+  text-shadow: #000 1px 1px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
 }
