@@ -1,80 +1,26 @@
-
-<!DOCTYPE HTML>
-<html lang="en-US">
+<html>
 <head>
-	<script type="text/javascript">
-document.onmousedown=disableclick;
-status="TERCIDUK....!!! Oleh Cyber Scurity SENK Team";
-function disableclick(event)
-{
-  if(event.button==2)
-   {
-     alert(status);
-     return false;   
-   }
-}
-</script>
-	<meta charset="UTF-8">
-	<title>Cyber SHER187</title>
-<meta name="description" content="Login PHP Ajax Jquery | Tutorial web design Indonesia"/>
-<meta name="keywords" content="ajax, jquery, login system, ajax login, jquery login, demo, tutorial, web design, web development"/>
-	<link rel="stylesheet" href="style.css" />
-	<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="jquery-1.7.min.js"></script>
-	<script type="text/javascript">
-	
-	$(document).ready(function(){
-		$("#login").click(function(){
-			
-			var action = $("#lg-form").attr('action');
-			var form_data = {
-				username: $("#username").val(hog),
-				password: $("#password").val(hog),
-				is_ajax: 1
-			};
-			
-			$.ajax({
-				type: "POST",
-				url: action,
-				data: form_data,
-				success: function(response)
-				{
-					if(response == "success")
-						$("#lg-form").slideUp('slow', function(){
-							$("#message").html('<p class="success">kamu pintar successfully!</p><p>Redirecting....</p>');
-						});
-					else
-						$("#message").html('<p class="error">ERROR: salah brow user lan pass e...!</p>');
-				}	
-			});
-			return false;
-		});
-	});
-	</script>
+<title>ID SHER187</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="style.css"/>
+<!-- Include JS File Here -->
+<script src="login.js"></script>
 </head>
 <body>
-
-	<div class="lg-container">
-		<h1>Admin Area</h1>
-		<form action="https://gobet87.github.io/sher187/login.html" id="lg-form" name="lg-form" method="post">
-			
-			<div>
-				<label for="username">Username:</label>
-				<input type="text" name="username" id="username" placeholder="username"/>
-			</div>
-			
-			<div>
-				<label for="password">Password:</label>
-				<input type="password" name="password" id="password" placeholder="password" />
-			</div>
-			
-			<div>				
-				<button type="submit" id="login">Login</button>
-			</div>
-			
-		</form>
-		<div id="message"></div>
-	</div>
-
+<div class="container">
+<div class="main">
+<h2>Javascript Login Form Validation</h2>
+<form>
+  
+  <input name="username" placeholder="username" id="username" />
+  <label for="username">Username</label>
+  
+  
+  <input name="password" placeholder="password" id="password" />
+  <label for="password">Password</label>
+  
+  
+  <input type="submit" value="Log In" />
+</form>
 </body>
 </html>
