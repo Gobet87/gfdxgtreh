@@ -1,26 +1,13 @@
-<html>
 <head>
-<title>ID SHER187</title>
-<!-- Include CSS File Here -->
-<link rel="stylesheet" href="style.css"/>
-<!-- Include JS File Here -->
-<script src="login.js"></script>
+  <title>- ID SHER187 -</title>
+  <link rel="stylesheet" href="stylelogin.css" type="text/css" media="all" /> 
 </head>
-<body>
-<div class="container">
-<div class="main">
-<h2>Javascript Login Form Validation</h2>
-<form>
-  
-  <input name="username" placeholder="username" id="username" />
-  <label for="username">Username</label>
-  
-  
-  <input name="password" placeholder="password" id="password" />
-  <label for="password">Password</label>
-  
-  
-  <input type="submit" value="Log In" />
+
+<form name="form1" method="post" action="login.js">
+  <label>Username : </label>
+    <input name="username" type="text" id="username" size="10">
+  <label>Password : </label>
+    <input name="password" type="password" id="password" size="10">
+
+  <input type="submit" value="Login" name="submit" class="submit" />
 </form>
-</body>
-</html>
